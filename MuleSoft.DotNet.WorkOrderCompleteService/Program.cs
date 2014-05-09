@@ -13,11 +13,12 @@ namespace MuleSoft.DotNet.WorkOrderCompleteService
  
     class Program
     {
-        
+        //This is a Self hosted WCF service that will also expose a MEX Endpoint aka WSDL
+        const string _WebServiceURL = "http://localhost:8082/WorkOrderCompletion";
         static void Main(string[] args)
         {
             //Self hosted WCF Service - 
-            Uri baseAddress = new Uri("http://localhost:8082/WorkOrderCompletion");
+            Uri baseAddress = new Uri(_WebServiceURL);
 
             // Create the ServiceHost.
             using (ServiceHost host = new ServiceHost(typeof(WorkOrderCompletion), baseAddress))
@@ -29,6 +30,8 @@ namespace MuleSoft.DotNet.WorkOrderCompleteService
                 smb.HttpGetEnabled = true;
                 smb.MetadataExporter.PolicyVersion = PolicyVersion.Policy15;
                 host.Description.Behaviors.Add(smb);
+
+                Console.WriteLine("Starting Service"); 
 
                 // Open the ServiceHost to start listening for messages. Since
                 // no endpoints are explicitly configured, the runtime will create
