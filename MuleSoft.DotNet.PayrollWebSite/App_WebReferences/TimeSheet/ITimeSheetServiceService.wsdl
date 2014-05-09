@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://samples.mulesoft.com/" xmlns:ns1="http://schemas.xmlsoap.org/soap/http" name="ITimeSheetServiceService" targetNamespace="http://samples.mulesoft.com/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="CompleteWorkOrder">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="wo" type="tns:WorkOrderCompleteRequest" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="CompleteWorkOrderResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="CompleteWorkOrderResult" type="tns:WorkOrderCompleteResponse" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:complexType name="timeSheetRequest">
+        <xs:sequence>
+          <xs:element name="cost" type="xs:double" />
+          <xs:element minOccurs="0" name="employeeID" type="xs:string" />
+          <xs:element name="machineID" type="xs:int" />
+          <xs:element minOccurs="0" name="plantName" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="timeSheetResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="employeeID" type="xs:string" />
+          <xs:element name="status" type="xs:boolean" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="WorkOrderCompleteRequest">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="WorkOrderID" type="xs:string" />
+          <xs:element name="Hours" type="xs:int" />
+          <xs:element name="isSuccessful" type="xs:boolean" />
+          <xs:element minOccurs="0" name="Comments" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="WorkOrderCompleteResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="WorkOrderID" type="xs:string" />
+          <xs:element name="isAcknowledged" type="xs:boolean" />
+        </xs:sequence>
+      </xs:complexType>
+    </xs:schema>
+    <xs:schema xmlns:ns1="http://tempuri.org/" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://samples.mulesoft.com/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:import namespace="http://tempuri.org/" />
+      <xs:element name="ProcessTimeSheet" type="tns:ProcessTimeSheet" />
+      <xs:element name="ProcessTimeSheetResponse" type="tns:ProcessTimeSheetResponse" />
+      <xs:complexType name="ProcessTimeSheet">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="arg0" type="ns1:timeSheetRequest" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="ProcessTimeSheetResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="ns1:timeSheetResponse" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="Exception" type="tns:Exception" />
+      <xs:complexType name="Exception">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="message" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="ProcessTimeSheetResponse">
+    <wsdl:part name="parameters" element="tns:ProcessTimeSheetResponse" />
+  </wsdl:message>
+  <wsdl:message name="Exception">
+    <wsdl:part name="Exception" element="tns:Exception" />
+  </wsdl:message>
+  <wsdl:message name="ProcessTimeSheet">
+    <wsdl:part name="parameters" element="tns:ProcessTimeSheet" />
+  </wsdl:message>
+  <wsdl:portType name="ITimeSheetService">
+    <wsdl:operation name="ProcessTimeSheet">
+      <wsdl:input name="ProcessTimeSheet" message="tns:ProcessTimeSheet" />
+      <wsdl:output name="ProcessTimeSheetResponse" message="tns:ProcessTimeSheetResponse" />
+      <wsdl:fault name="Exception" message="tns:Exception" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ITimeSheetServiceServiceSoapBinding" type="tns:ITimeSheetService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ProcessTimeSheet">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="ProcessTimeSheet">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="ProcessTimeSheetResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="Exception">
+        <soap:fault use="literal" name="Exception" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ITimeSheetServiceService">
+    <wsdl:port name="ITimeSheetServicePort" binding="tns:ITimeSheetServiceServiceSoapBinding">
+      <soap:address location="http://localhost:8083/ProcessTimeSheet" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

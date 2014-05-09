@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://samples.mulesoft.com/" xmlns:ns1="http://schemas.xmlsoap.org/soap/http" name="IProcessWorkOrderService" targetNamespace="http://samples.mulesoft.com/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="CompleteWorkOrder">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="wo" type="tns:WorkOrderCompleteRequest" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="CompleteWorkOrderResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="CompleteWorkOrderResult" type="tns:WorkOrderCompleteResponse" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:complexType name="workOrderRequest">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="functionalLocation" type="xs:string" />
+          <xs:element name="machineID" type="xs:int" />
+          <xs:element minOccurs="0" name="machineName" type="xs:string" />
+          <xs:element minOccurs="0" name="maintenanceType" type="xs:string" />
+          <xs:element minOccurs="0" name="plant" type="xs:string" />
+          <xs:element minOccurs="0" name="requestDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="workOrderID" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="workOrderRequestAck">
+        <xs:sequence>
+          <xs:element name="status" type="xs:boolean" />
+          <xs:element minOccurs="0" name="workOrderID" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="WorkOrderCompleteResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="WorkOrderID" type="xs:string" />
+          <xs:element name="isAcknowledged" type="xs:boolean" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="WorkOrderCompleteRequest">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="WorkOrderID" type="xs:string" />
+          <xs:element name="Hours" type="xs:int" />
+          <xs:element name="isSuccessful" type="xs:boolean" />
+          <xs:element minOccurs="0" name="Comments" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+    </xs:schema>
+    <xs:schema xmlns:ns1="http://tempuri.org/" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://samples.mulesoft.com/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:import namespace="http://tempuri.org/" />
+      <xs:element name="ProcessWorkOrder" type="tns:ProcessWorkOrder" />
+      <xs:element name="ProcessWorkOrderResponse" type="tns:ProcessWorkOrderResponse" />
+      <xs:complexType name="ProcessWorkOrder">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="arg0" type="ns1:workOrderRequest" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="ProcessWorkOrderResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="ns1:workOrderRequestAck" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="Exception" type="tns:Exception" />
+      <xs:complexType name="Exception">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="message" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="ProcessWorkOrder">
+    <wsdl:part name="parameters" element="tns:ProcessWorkOrder" />
+  </wsdl:message>
+  <wsdl:message name="ProcessWorkOrderResponse">
+    <wsdl:part name="parameters" element="tns:ProcessWorkOrderResponse" />
+  </wsdl:message>
+  <wsdl:message name="Exception">
+    <wsdl:part name="Exception" element="tns:Exception" />
+  </wsdl:message>
+  <wsdl:portType name="IProcessWorkOrder">
+    <wsdl:operation name="ProcessWorkOrder">
+      <wsdl:input name="ProcessWorkOrder" message="tns:ProcessWorkOrder" />
+      <wsdl:output name="ProcessWorkOrderResponse" message="tns:ProcessWorkOrderResponse" />
+      <wsdl:fault name="Exception" message="tns:Exception" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="IProcessWorkOrderServiceSoapBinding" type="tns:IProcessWorkOrder">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ProcessWorkOrder">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="ProcessWorkOrder">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="ProcessWorkOrderResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="Exception">
+        <soap:fault use="literal" name="Exception" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="IProcessWorkOrderService">
+    <wsdl:port name="IProcessWorkOrderPort" binding="tns:IProcessWorkOrderServiceSoapBinding">
+      <soap:address location="http://localhost:8081/ProcessWorkOrder" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

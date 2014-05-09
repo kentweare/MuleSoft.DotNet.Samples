@@ -1,0 +1,78 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MuleSoft.DotNet.WorkOrderCompleteService", "MuleSoft.DotNet.WorkOrderCompleteService\MuleSoft.DotNet.WorkOrderCompleteService.csproj", "{6D33A2CB-4306-4382-ABDA-B1F9ACD91B13}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MuleSoft.DotNet.MaintenanceSystem", "MuleSoft.DotNet.MaintenanceSystem\MuleSoft.DotNet.MaintenanceSystem.csproj", "{0B24661C-DEC9-4104-B3FC-677EC1AA4ABD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MuleSoft.DotNet.ERP", "MuleSoft.DotNet.ERP\MuleSoft.DotNet.ERP.csproj", "{C04B0970-518D-425A-9629-B48193671777}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MuleSoft.DotNet.BusinessLogic", "MuleSoft.DotNet.BusinessLogic\MuleSoft.DotNet.BusinessLogic.csproj", "{BD28B417-5466-4879-A8AE-7C08E59EA9B1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MuleSoft.DotNet.GeneralLedgerService", "MuleSoft.DotNet.GeneralLedgerService\MuleSoft.DotNet.GeneralLedgerService.csproj", "{33995634-1161-47A6-9EF2-16CE50E83119}"
+EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "MuleSoft.DotNet.PayrollWebSite", "http://localhost:1445", "{B663F88A-C563-4ECC-8DCC-150AE1935E61}"
+	ProjectSection(WebsiteProperties) = preProject
+		UseIISExpress = "true"
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.5"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_1445"
+		Debug.AspNetCompiler.PhysicalPath = "MuleSoft.DotNet.PayrollWebSite\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_1445\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_1445"
+		Release.AspNetCompiler.PhysicalPath = "MuleSoft.DotNet.PayrollWebSite\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_1445\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		SlnRelativePath = "MuleSoft.DotNet.PayrollWebSite\"
+		DefaultWebSiteLanguage = "Visual C#"
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MuleSoft.DotNet.HelloWorld", "MuleSoft.DotNet.HelloWorld\MuleSoft.DotNet.HelloWorld.csproj", "{C9038DF5-AA89-4BF8-9D68-6FE5365BB3F2}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6D33A2CB-4306-4382-ABDA-B1F9ACD91B13}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6D33A2CB-4306-4382-ABDA-B1F9ACD91B13}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6D33A2CB-4306-4382-ABDA-B1F9ACD91B13}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6D33A2CB-4306-4382-ABDA-B1F9ACD91B13}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0B24661C-DEC9-4104-B3FC-677EC1AA4ABD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0B24661C-DEC9-4104-B3FC-677EC1AA4ABD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0B24661C-DEC9-4104-B3FC-677EC1AA4ABD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0B24661C-DEC9-4104-B3FC-677EC1AA4ABD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C04B0970-518D-425A-9629-B48193671777}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C04B0970-518D-425A-9629-B48193671777}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C04B0970-518D-425A-9629-B48193671777}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C04B0970-518D-425A-9629-B48193671777}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BD28B417-5466-4879-A8AE-7C08E59EA9B1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BD28B417-5466-4879-A8AE-7C08E59EA9B1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BD28B417-5466-4879-A8AE-7C08E59EA9B1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BD28B417-5466-4879-A8AE-7C08E59EA9B1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{33995634-1161-47A6-9EF2-16CE50E83119}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{33995634-1161-47A6-9EF2-16CE50E83119}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{33995634-1161-47A6-9EF2-16CE50E83119}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{33995634-1161-47A6-9EF2-16CE50E83119}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B663F88A-C563-4ECC-8DCC-150AE1935E61}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B663F88A-C563-4ECC-8DCC-150AE1935E61}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B663F88A-C563-4ECC-8DCC-150AE1935E61}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{B663F88A-C563-4ECC-8DCC-150AE1935E61}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{C9038DF5-AA89-4BF8-9D68-6FE5365BB3F2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C9038DF5-AA89-4BF8-9D68-6FE5365BB3F2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C9038DF5-AA89-4BF8-9D68-6FE5365BB3F2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C9038DF5-AA89-4BF8-9D68-6FE5365BB3F2}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
